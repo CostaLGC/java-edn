@@ -25,3 +25,10 @@ jobs:
       with:
         name: build-artifacts
         path: target/
+
+    - name: Scan with Trivy
+      uses: aquasecurity/trivy-action@v0.11.0
+      with:
+        scan-type: 'fs'
+        severity: 'CRITICAL,HIGH'
+        ignore-unfixed: true
